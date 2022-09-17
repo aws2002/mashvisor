@@ -7,29 +7,25 @@ import { signIn } from "next-auth/react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { Input, Button } from "@mashvisor/design-system";
 import Link from "next/link";
-import PasswordStrengthMeter from '../components/Tools/PasswordStrengthMeter';
-
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BiErrorAlt } from "react-icons/bi";
 const Signup: NextPage = () => {
   const [show, setShow] = useState<boolean>(false);
   async function handleGoogleSignin() {
     signIn("google", { callbackUrl: "http://localhost:3000" });
   }
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const onChabgeInput = (e: any) => {
-    const formField = e.target.name;
-
-    const updateFormData = {
-      ...formData,
-      [formField]: e.target.value,
-    };
-    setFormData(updateFormData);
-  };
-  const onSubmitFormData = (e: any) => {
-    e.preventDefault();
-    alert(JSON.stringify(formData, null, 2));
+  const [email, setEmail] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  function isValidEmail(email: any) {
+    return !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+  }
+  const handleChange = (event: any) => {
+    if (!isValidEmail(event)) {
+      setErrorEmail("Email is invalid");
+    } else {
+      setErrorEmail("");
+    }
+    setEmail(event);
   };
   return (
     <Layout>
@@ -51,13 +47,27 @@ const Signup: NextPage = () => {
           </div>
 
           <div>
-            <form action="" onSubmit={onSubmitFormData}>
-            
+            <form action="">
               <div>
+                {errorEmail && errorEmail ? (
+                  <AiOutlineCheckCircle
+                    style={{ color: "green" }}
+                    className={styles.icon}
+                  />
+                ) : (
+                  <BiErrorAlt
+                    style={{ color: "red" }}
+                    className={styles.icon}
+                  />
+                )}
                 <Input
+                  id="email"
+                  name="email"
                   type="email"
                   placeholder="name@example.com"
                   label="Email"
+                  value={email}
+                  onChange={handleChange}
                 />
               </div>
               <div className={styles.inputForm}>
@@ -77,7 +87,6 @@ const Signup: NextPage = () => {
                   )}
                 </div>
               </div>
-
 
               <div className={styles.remember}>
                 <p>Remember me</p>

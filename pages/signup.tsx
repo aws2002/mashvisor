@@ -7,27 +7,25 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Link from "next/link";
 import { Input, Button } from "@mashvisor/design-system";
 import PasswordStrengthMeter from "../components/Tools/PasswordStrengthMeter";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+import { BiErrorAlt } from "react-icons/bi";
 
 const Signup: NextPage = () => {
   const [show, setShow] = useState<boolean>(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const onChangeInput = (e: any) => {
-    const formField = e.target.name;
-    const updateFormData = {
-      ...formData,
-      [formField]: e.target.value,
-    };
-    setFormData(updateFormData);
-  };
-  const onSubmitFormData = (e: any) => {
-    e.preventDefault();
-    alert(JSON.stringify(formData, null, 2));
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  function isValidEmail(email: any) {
+    return !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+  }
+  const handleChange = (event: any) => {
+    if (!isValidEmail(event)) {
+      setError("Email is invalid");
+    } else {
+      setError("");
+    }
+    setEmail(event);
   };
   const [ password, setPassword ] = useState('');
-
   return (
     <Layout>
       <section className="container">
@@ -47,17 +45,23 @@ const Signup: NextPage = () => {
             <button>Sign up with Google</button>
           </div>
           <div className={styles.containerForm}>
-            <form action="" onSubmit={onSubmitFormData}>
+            <form action="">
               <div>
+                {error ? (
+                  <AiOutlineCheckCircle style={{ color: "green" }} className={styles.icon} />
+                ) : (
+                  <BiErrorAlt style={{ color: "red" }}  className={styles.icon} />
+                )}
                 <Input
                   id="email"
                   name="email"
                   type="email"
                   placeholder="name@example.com"
                   label="Email"
-                  onChange={onChangeInput}
-                  value={formData.email}
+                  value={email}
+                  onChange={handleChange}
                 />
+                
               </div>
               <div className={styles.inputForm}>
                 <Input
@@ -66,8 +70,7 @@ const Signup: NextPage = () => {
                   type={`${show ? "text" : "password"}`}
                   placeholder="at least 8 characters"
                   label="Password"
-                  value={formData.password}
-                  onChange={onChangeInput}
+                  onChange={e => setPassword(e)}
                 />
                 <div
                   onClick={() => setShow(!show)}
@@ -80,7 +83,7 @@ const Signup: NextPage = () => {
                   )}
                 </div>
               </div>
-              {/* <PasswordStrengthMeter password={password} /> */}
+              <PasswordStrengthMeter password={password} />
               <div className={styles.termsPrivacy}>
                 <p>
                   By signing up, you are agreeing to our
