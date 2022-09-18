@@ -47,16 +47,26 @@ const Signup: NextPage = () => {
           <div className={styles.containerForm}>
             <form action="">
               <div>
-                {error ? (
-                  <AiOutlineCheckCircle
-                    style={{ color: "green" }}
-                    className={styles.icon}
-                  />
+              {error && error ? (
+                  <div className={styles.icon}>
+                    <Image
+                      src={"/assets/Vector.svg"}
+                      alt=""
+                      width={15}
+                      height={15}
+                      priority
+                    />
+                  </div>
                 ) : (
-                  <BiErrorAlt
-                    style={{ color: "red" }}
-                    className={styles.icon}
-                  />
+                  <div className={styles.icon}>
+                    <Image
+                      src={"/assets/error.svg"}
+                      alt=""
+                      width={15}
+                      height={15}
+                      priority
+                    />
+                  </div>
                 )}
                 <Input
                   id="email"
@@ -82,9 +92,22 @@ const Signup: NextPage = () => {
                   className={styles.btnShowPass}
                 >
                   {show === true ? (
-                    <AiOutlineEye size={25} />
+                    // <AiOutlineEye size={25} />
+                    <Image
+                      src={"/assets/EyeInvisible.svg"}
+                      alt=""
+                      width={20}
+                      height={20}
+                      priority
+                    />
                   ) : (
-                    <AiOutlineEyeInvisible size={25} />
+                    <Image
+                      src={"/assets/Eye.svg"}
+                      alt=""
+                      width={20}
+                      height={20}
+                      priority
+                    />
                   )}
                 </div>
               </div>
@@ -93,11 +116,15 @@ const Signup: NextPage = () => {
                 <p>
                   By signing up, you are agreeing to our
                   <Link href={""}>
-                    <Button variant="link" size="sm">Terms & Conditions</Button>
+                    <Button variant="link" size="sm">
+                      Terms & Conditions
+                    </Button>
                   </Link>{" "}
                   and{" "}
                   <Link href={""}>
-                    <Button variant="link" size="sm">Privacy Policy.</Button>
+                    <Button variant="link" size="sm">
+                      Privacy Policy.
+                    </Button>
                   </Link>
                 </p>
                 {/* <Link href={""}>
