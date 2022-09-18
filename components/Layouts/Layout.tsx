@@ -3,7 +3,7 @@ import styles from "../../styles/main.module.scss";
 export default function Layout({ children }: any) {
   return (
     <div>
-      <div className="bg">
+      <div className={styles.pointer_events_none}>
         <Image
           alt="Mountains"
           src="/assets/Vector.png"
