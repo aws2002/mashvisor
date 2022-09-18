@@ -1305,6 +1305,11 @@
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
 
+"@types/zxcvbn@^4.4.1":
+  "integrity" "sha512-3NoqvZC2W5gAC5DZbTpCeJ251vGQmgcWIHQJGq2J240HY6ErQ9aWKkwfoKJlHLx+A83WPNTZ9+3cd2ILxbvr1w=="
+  "resolved" "https://registry.npmjs.org/@types/zxcvbn/-/zxcvbn-4.4.1.tgz"
+  "version" "4.4.1"
+
 "@typescript-eslint/parser@^5.21.0":
   "integrity" "sha512-01VzI/ipYKuaG5PkE5+qyJ6m02fVALmMPY3Qq5BHflDx3y4VobbLdHQkSMg9VPRS4KdNt4oYTMaomFoHonBGAw=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-5.37.0.tgz"

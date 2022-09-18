@@ -1,8 +1,8 @@
 import zxcvbn from "zxcvbn";
 import styles from "../../styles/main.module.scss";
-const PasswordStrengthMeter = ({ password }) => {
-  const testResult = zxcvbn(password);
-  const num = (testResult.score * 100) / 4;
+const PasswordStrengthMeter = ({ password }: any) => {
+  const testResult: zxcvbn.ZXCVBNResult = zxcvbn(password);
+  const num: number = (testResult.score * 100) / 4;
 
   const createPassLabel = () => {
     switch (testResult.score) {
@@ -46,7 +46,6 @@ const PasswordStrengthMeter = ({ password }) => {
     height: "5px",
     borderRadius: 10,
   });
-
   return (
     <>
       <div

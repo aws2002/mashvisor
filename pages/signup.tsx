@@ -25,7 +25,7 @@ const Signup: NextPage = () => {
     }
     setEmail(event);
   };
-  const [ password, setPassword ] = useState('');
+  const [password, setPassword] = useState("");
   return (
     <Layout>
       <section className="container">
@@ -48,9 +48,15 @@ const Signup: NextPage = () => {
             <form action="">
               <div>
                 {error ? (
-                  <AiOutlineCheckCircle style={{ color: "green" }} className={styles.icon} />
+                  <AiOutlineCheckCircle
+                    style={{ color: "green" }}
+                    className={styles.icon}
+                  />
                 ) : (
-                  <BiErrorAlt style={{ color: "red" }}  className={styles.icon} />
+                  <BiErrorAlt
+                    style={{ color: "red" }}
+                    className={styles.icon}
+                  />
                 )}
                 <Input
                   id="email"
@@ -61,7 +67,6 @@ const Signup: NextPage = () => {
                   value={email}
                   onChange={handleChange}
                 />
-                
               </div>
               <div className={styles.inputForm}>
                 <Input
@@ -70,7 +75,7 @@ const Signup: NextPage = () => {
                   type={`${show ? "text" : "password"}`}
                   placeholder="at least 8 characters"
                   label="Password"
-                  onChange={e => setPassword(e)}
+                  onChange={(e) => setPassword(e)}
                 />
                 <div
                   onClick={() => setShow(!show)}
@@ -87,9 +92,20 @@ const Signup: NextPage = () => {
               <div className={styles.termsPrivacy}>
                 <p>
                   By signing up, you are agreeing to our
-                  <a href="">Terms & Conditions</a> and{" "}
-                  <a href="">Privacy Policy.</a>
+                  <Link href={""}>
+                    <Button variant="link" size="sm">Terms & Conditions</Button>
+                  </Link>{" "}
+                  and{" "}
+                  <Link href={""}>
+                    <Button variant="link" size="sm">Privacy Policy.</Button>
+                  </Link>
                 </p>
+                {/* <Link href={""}>
+                  <Button variant="link">Terms & Conditions</Button>
+                </Link>
+                <Link href={""}>
+                  <Button variant="link">Privacy Policy.</Button>
+                </Link> */}
               </div>
               <Button width="full">Sign Up</Button>
             </form>
@@ -98,7 +114,7 @@ const Signup: NextPage = () => {
             <p>
               Already have an account?
               <Link href={"/login"}>
-                <a href="">Log in</a>
+                <Button variant="link">Log in</Button>
               </Link>
             </p>
           </div>

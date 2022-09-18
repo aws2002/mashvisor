@@ -50,15 +50,25 @@ const Signup: NextPage = () => {
             <form action="">
               <div>
                 {errorEmail && errorEmail ? (
-                  <AiOutlineCheckCircle
-                    style={{ color: "green" }}
-                    className={styles.icon}
-                  />
+                  <div className={styles.icon}>
+                    <Image
+                      src={"/assets/Vector.svg"}
+                      alt=""
+                      width={15}
+                      height={15}
+                      priority
+                    />
+                  </div>
                 ) : (
-                  <BiErrorAlt
-                    style={{ color: "red" }}
-                    className={styles.icon}
-                  />
+                  <div className={styles.icon}>
+                    <Image
+                      src={"/assets/error.svg"}
+                      alt=""
+                      width={15}
+                      height={15}
+                      priority
+                    />
+                  </div>
                 )}
                 <Input
                   id="email"
@@ -81,17 +91,46 @@ const Signup: NextPage = () => {
                   className={styles.btnShowPass}
                 >
                   {show === true ? (
-                    <AiOutlineEye size={25} />
+                    // <AiOutlineEye size={25} />
+                    <Image
+                      src={"/assets/EyeInvisible.svg"}
+                      alt=""
+                      width={20}
+                      height={20}
+                      priority
+                    />
                   ) : (
-                    <AiOutlineEyeInvisible size={25} />
+                    <Image
+                      src={"/assets/Eye.svg"}
+                      alt=""
+                      width={20}
+                      height={20}
+                      priority
+                    />
                   )}
                 </div>
               </div>
 
               <div className={styles.remember}>
-                <p>Remember me</p>
+                <label
+                  htmlFor="checkbox"
+                  style={{ color: "#595959" }}
+                  className={styles.contentRChec}
+                >
+                  {" "}
+                  <input
+                    className={styles.customCheckbox}
+                    type="checkbox"
+                    id="checkbox"
+                  />
+                  Remember me
+                </label>
                 <div>
-                  <a href="">Forgot password?</a>
+                  <Link href={""}>
+                    <Button variant="link" size="sm">
+                      Forgot password?
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
@@ -103,12 +142,12 @@ const Signup: NextPage = () => {
             </form>
           </div>
           <div className={styles.isHaveAccount}>
-            <p>
+            <span>
               Already have an account?
               <Link href={"/signup"}>
-                <a href="">Sign Up</a>
+                <Button variant="link">Sign Up</Button>
               </Link>
-            </p>
+            </span>
           </div>
         </div>
       </section>

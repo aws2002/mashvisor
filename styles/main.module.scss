@@ -1,7 +1,8 @@
 @import "./variables/variables";
+
 .box {
   width: 416px;
-  height: 474px;
+  height: 480px;
   border-radius: 16px;
   background-color: #fff;
   padding: 24px 48px 64px 48px;
@@ -9,19 +10,23 @@
   position: relative;
   z-index: 1000;
 }
+
 .box a {
   color: #16227B;
 }
+
 .title {
   text-align: center;
   font-weight: 700;
   margin-bottom: 25px;
   color: #16227B;
 }
+
 .title span {
   font-size: 14px;
   font-weight: 400;
 }
+
 .btnAuth {
   background-color: #F0F2F5;
   height: 38px;
@@ -31,50 +36,70 @@
   cursor: pointer;
   margin-bottom: 39px;
 }
+
 .btnAuth button {
   border: none;
   background: none;
   font-size: 14px;
   cursor: pointer;
 }
+
 .termsPrivacy p {
-  font-size: 12px;
-  text-align: center;
+  font-size: 14px;
   color: #778699;
-  margin: 10px 0 15px;
+  text-align: center;
+  margin: 14px 0;
 }
+
 .isHaveAccount {
   color: #778699A6;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.02em;
-  margin-top: 10px;
+  margin-top: 5px;
 }
+
 .inputForm {
   position: relative;
   margin-top: 10px;
 }
+
 .btnShowPass {
   position: absolute;
-  top: 50%;
+  top: 53%;
   right: 10px;
 }
-.remember{
+
+.remember {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
   margin: 15px 0;
 }
-.passwordStrength{
+
+.passwordStrength {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
   margin: 5px 0;
 }
-.remember .inputCheckbox{
-  display: inline-flex;
-}
-.icon{
+
+.icon {
   margin-right: 5px;
+  display: inline-block;
+}
+
+.customCheckbox {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.contentRChec {
+  margin-top: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
 }
